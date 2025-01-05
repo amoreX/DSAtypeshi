@@ -1,9 +1,12 @@
+def solve(s1, s2):
+    s1=sorted(s1)
+    s2=sorted(s2)
+    j=0
+    for i in range(len(s1)):
+        if j <len(s2):
+            if s1[i]!=s2[j]:
+                print("False")
+                break
+            j+=1
 
-nums=[4,2,1,2,1]
-p={}
-for i in nums:
-    p[i]=p.get(i,0)+1
-print(p)
-for keys in p.keys():
-    if p[keys]==1:
-        print(keys)
+solve("silent","listenm")
