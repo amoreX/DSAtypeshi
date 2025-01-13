@@ -19,6 +19,7 @@ def bfs(r, c):
         for dr, dc in directions:
             r, c = row + dr, col + dc
 
+
             if (
                 r in range(rows)
                 and c in range(cols)
