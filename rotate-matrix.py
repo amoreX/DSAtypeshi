@@ -5,13 +5,13 @@ matrix = [
 ]
 
 
-left,right=0,len(matrix)-1 #square matrix
+left,right=0,len(matrix)-1 
 
-while left<right:
-    for i in range(right-left):
-        top,bottom=left,right
+while left<right: # to go through every fucking shit in a layer untill left and right are the same
+    for i in range(right-left): # to actually iterate over every fuckign element in a layer
+        top,bottom=left,right #since square matrix so top and bottom are the same as left and right indexes
         
-        # print(top,bottom,i)
+        
         topleft=matrix[top][left+i]
         
         #bottom left to top left
