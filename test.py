@@ -7,35 +7,32 @@ wordList=set(wordList)
 
 visited=set()
 
-def check(word1,word2):
-    if len(word1)!= len(word2):
-        return False
+def check(w1,w2):
     diff=0
-    for c1,c2 in zip(word1,word2):
-        if c1!= c2:
+    for a , b in zip(w1,w2):
+        if a!=b :
             diff+=1
         if diff>1:
             return False
     return True
 
-count=0
 
-def wordshit(beginWord,endWord,wordList,count):
+def bfs(begin):
     q=collections.deque()
-    q.append([beginWord])
-    visited.add(beginWord)
+    q.append([begin])
+    visited.add(begin)
     
     while q:
         path=q.popleft()
-        current_word=path[-1]
+        curr=path[-1]
         
-        if current_word==endWord:
+        if curr==endWord:
             return path
-        
+
         for word in wordList:
-            if word not in visited and check(current_word,word):
+            if word not in visited and check(word,curr):
                 q.append(path+[word])
                 visited.add(word)
     return []
-
-print(wordshit(beginWord,endWord,wordList,count))
+res=bfs(beginWord)
+print(res)
