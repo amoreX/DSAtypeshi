@@ -1,5 +1,7 @@
 import math
 
+#simple fucking log formula 
+
 dividend=int(input("enter"))
 divisor=int(input("enter"))
 

@@ -1,21 +1,34 @@
-import math
+import collections
 
-def divide(dividend: int, divisor: int) -> int:
-    # Handle edge case (overflow case)
-    if dividend == -2**31 and divisor == -1:
-        return 2**31 - 1  # Clamping to prevent overflow
-    
-    # Calculate quotient using logarithms
-    quotient = math.exp(math.log(abs(dividend)) - math.log(abs(divisor)))
-    
-    # Convert to integer (truncate towards zero)
-    quotient = int(quotient)
-    
-    # Adjust sign based on input signs
-    if (dividend < 0) ^ (divisor < 0):  
-        quotient = -quotient
-    
-    return quotient
+rows=3
+cols=7
 
-# Example
-print(divide(-1, 0)) # Output: -3
+res=0
+
+
+def bfs(r,c):
+	global res
+	q=collections.deque()
+	q.append((r,c))
+	while q:
+		r,c=q.popleft()
+
+		if r == rows-1 and c == cols-1:
+			res += 1
+			continue
+
+		directions=[[0,1],[1,0]]
+
+		for dr,dc in directions:
+			row=r+dr
+			col=c+dc
+
+			if row in range(rows) and col in range(cols) :
+				q.append((row,col))
+				
+
+				
+
+bfs(0,0)
+
+print(res)
