@@ -37,5 +37,4 @@ int main(){
             printf("%d , ",subset[i]);
         }
     }
-
 }
