@@ -1,12 +1,23 @@
-strs=["flower","flow","flight","fling","flirt"]
-shortest=min(strs,key=len)
-# print(shortest[:1])
-for i in strs:
-	p=shortest
-	k=1
-	while i[:k]==p[:k] and k<len(p):
-		k+=1
-	if i[k-1]!=p[k-1]:
-		k-=1
-	shortest=shortest[:k]
-print(shortest)
+global result
+result=""
+global stack
+stack=[""]
+
+def append(word):
+    global result
+    global stack
+    result+=word
+    stack.append(result)
+    return result
+
+def undo():
+    global result
+    global stack
+    stack.pop()
+    result=stack[-1]x
+    return result
+
+print(append("Hello"))
+print(append(" World"))
+print(undo())
+print(undo())
